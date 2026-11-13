@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Pcard from '../components/Pcard.astro';
+const endpoint = 'https://ddgwtpxuuuouznvowmpg.supabase.co/rest/v1/events?select=*';
+
+const options = {
+    headers:{apikey: 'sb_publishable_Qyj0b2QsY5jaUu8f-6k9vA_0CE81Dto'}
+}
+const data = await fetch(endpoint, options).then((res)=> res.json());
+// console.table(data);
+---
+
+<Layout title="Products">
+
+    <h2>Vores produkter </h2>
+<section>
+    {data.map(produkt=><Pcard {produkt}/>)}
+</section>
+</Layout>
+
+<style>
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1rem;
+    }
+</style>

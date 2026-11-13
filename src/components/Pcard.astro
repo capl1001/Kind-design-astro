@@ -1,0 +1,37 @@
+---
+const {produkt} = Astro.props;
+console.log(produkt);
+---
+
+<article>
+    <img src={produkt.billede} alt="product image" />
+    <h2>{produkt.titel}</h2>
+    <p>{produkt.dato}</p>
+    <p>{produkt.tid} kl.</p>
+    <p>{produkt.beskrivelse}</p>
+
+</article>
+
+<style>
+    article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 6;
+  position: relative;
+  background-color: white;
+  border: 1px solid #e3ded7;
+  padding: 1rem;
+  border-radius: 10px;
+    }
+    article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+</style>

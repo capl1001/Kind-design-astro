@@ -1,3 +1,7 @@
+---
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,9 +10,22 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
+		<header>
+			<nav>
+        <h1>MIN TØJBUTIK</h1>
+
+        <div class="nav-links">
+          <a href="/">Forside</a>
+          <a href="/products">Produkter</a>
+          <a href="/about">Om os</a>
+        </div>
+
+        <a href="#" class="cart">🛒 Kurv</a>
+      </nav>
+		</header>
 		<slot />
 	</body>
 </html>
@@ -19,5 +36,36 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		background-color: #f5f1ec;
 	}
+	header {
+		background-color: rgba(57, 68, 43, 0.8);
+		color: beige;
+		padding: 1rem;
+		text-align: center;
+	}
+	nav {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a,
+.cart {
+  color: #f5f1ec;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.cart:hover {
+  text-decoration: underline;
+}
 </style>
